@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+/* This line can be removed it was just for display on CodePen: */
+.slider-labels {
+  margin-top: 10px;
+}
+
+/* Functional styling;
+   * These styles are required for noUiSlider to function.
+   * You don't need to change these rules to apply your design.
+   */
+.noUi-target,
+.noUi-target * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.noUi-target {
+  position: relative;
+  direction: ltr;
+}
+
+.noUi-base {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  /* Fix 401 */
+}
+
+.noUi-origin {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.noUi-handle {
+  position: relative;
+  z-index: 1;
+}
+
+.noUi-stacking .noUi-handle {
+  /* This class is applied to the lower origin when
+   its values is > 50%. */
+  z-index: 10;
+}
+
+.noUi-state-tap .noUi-origin {
+  transition: left 0.3s, top 0.3s;
+}
+
+.noUi-state-drag * {
+  cursor: inherit !important;
+}
+
+/* Painting and performance;
+   * Browsers can paint handles in their own layer.
+   */
+.noUi-base,
+.noUi-handle {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Slider size and handle placement;
+   */
+.noUi-horizontal {
+  height: 4px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  left: -7px;
+  top: -7px;
+  background-color: #ffffff;
+  border: solid 2px #000;
+}
+
+/* Styling;
+   */
+.noUi-background {
+  background: #D6D7D9;
+}
+
+.noUi-connect {
+  background: #000;
+  transition: background 450ms;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.noUi-origin {
+  border-radius: 2px;
+}
+
+.noUi-target {
+  border-radius: 2px;
+}
+
+/* Handles and cursors;
+   */
+.noUi-draggable {
+  cursor: w-resize;
+}
+
+.noUi-vertical .noUi-draggable {
+  cursor: n-resize;
+}
+
+.noUi-handle {
+  cursor: default;
+  box-sizing: content-box !important;
+}
+
+.noUi-handle:active {
+  border: 8px solid #345DBB;
+  border: 8px solid rgba(189, 189, 189, 0.38);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  left: -14px;
+  top: -14px;
+}
+
+/* Disabled state;
+   */
+[disabled].noUi-connect,
+[disabled] .noUi-connect {
+  background: #B8B8B8;
+}
+
+[disabled].noUi-origin,
+[disabled] .noUi-handle {
+  cursor: not-allowed;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  max-width: 1440px;
+  padding: 0 50px;
+}
+
+#search-filter {
+  padding-top: 50px;
+  display: flex;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+#search-filter img {
+  width: 50px;
+  margin-right: 20px;
+}
+#search-filter input {
+  border: none;
+  outline: none;
+  border-bottom: solid 2px #000;
+  width: calc(100% - 480px);
+  min-width: 300px;
+  font-size: 30px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+#search-filter select {
+  min-width: 300px;
+}
+
+select {
+  border: none;
+  font-size: 20px;
+  border-bottom: solid 2px rgba(0, 0, 0, 0.316);
+  outline: none;
+  padding-bottom: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/5842/5842712.png");
+  background-size: 10%;
+  background-position-x: 100%;
+  background-position-y: 0px;
+  background-repeat: no-repeat;
+}
+
+#products {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  justify-content: flex-start;
+  padding: 50px 0;
+}
+#products .filtres {
+  width: 300px;
+  display: flex;
+  row-gap: 40px;
+  flex-direction: column;
+}
+#products .filtres select {
+  font-size: 17px;
+  width: 100%;
+  background-size: 5%;
+}
+#products .filtres span {
+  text-transform: uppercase;
+  opacity: 0.5;
+  font-size: 13px;
+}
+#products .product {
+  width: 300px;
+  cursor: pointer;
+}
+#products .product .image-container {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+#products .product img {
+  max-width: 20px;
+  height: 20px;
+}
+#products .product .image {
+  height: 300px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease-in-out;
+}
+#products .product .image:hover {
+  transform: scale(1.1);
+}
+#products .product img {
+  width: 35px;
+}
+#products .product .info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+#products .product .info .left, #products .product .info .right {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+#products .product .info .cathegory {
+  opacity: 0.5;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+#pagesSelector {
+  display: flex;
+  padding-bottom: 30px;
+}
+#pagesSelector .pageSelector {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#pagesSelector .pageSelector.active {
+  color: #fff;
+  background-color: #000;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    padding: 0 20px;
+  }
+  #products {
+    justify-content: center;
+  }
+  #search-filter {
+    -moz-column-gap: 0;
+         column-gap: 0;
+  }
+  #search-filter img {
+    width: 30px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+  }
+  #search-filter input {
+    width: calc(100% - 50px);
+    min-width: auto;
+    font-size: 20px;
+    padding-bottom: 3px;
+    margin-bottom: 30px;
+  }
+  #search-filter select {
+    width: 100%;
+    background-size: 5%;
+  }
+}
+@media all {
+  body {
+    color: black;
+    background-color: white;
+  }
+}
+@media (min-width: 50em) and (min-height: 60em) {
+  header {
+    -moz-column-count: 2;
+         column-count: 2;
+  }
+}
+.push {
+  margin-left: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  margin: 0;
+  flex-direction: column;
+  width: 100%;
+}
+
+nav {
+  width: 100%;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  width: 100%;
+}
+
+.home {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  position: absolute;
+  left: 130px;
+  top: 25px;
+}
+
+.shop {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  position: absolute;
+  left: 230px;
+  top: 25px;
+}
+
+.magazine {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  position: absolute;
+  left: 330px;
+  top: 25px;
+}
+
+.login {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  position: absolute;
+  right: 50px;
+  top: 25px;
+}
+
+.chariot {
+  position: absolute;
+  top: 25px;
+  right: 130px;
+  height: 40px;
+  width: 40px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.gauche img {
+  height: 50px;
+}/*# sourceMappingURL=styles.css.map */

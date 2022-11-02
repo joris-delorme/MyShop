@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Room</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/reset-min.css" integrity="sha256-QlHlZdbSVxaYkUHxhMFhAj/L3pJiW1LuomSCONXBWms=" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js" integrity="sha256-dImjLPUsG/6p3+i7gVKBiDM8EemJAhQ0VvkRK2pVsQY=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.46.2/dist/instantsearch.production.min.js" integrity="sha256-ZyB2MNb5ZWtSnHS+PBJebb+NFWDxb2qQiVmN5S7DFqc=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <header>
+    <nav>
+        <ul class="header-nav">
+            <div class="gauche">
+                <img src="./image/icons8-menu-squared-100.png" alt="logo menu" class="logo menu">
+                <h3 class="home"><a href="#">HOME</a></h3>
+                <h3 class="shop"><a href="#">SHOP</a></h3>
+                <h3 class="magazine"><a href="#">MAGAZINE</a></h3>
+            </div>
+            <div class="droite">
+                <img src="./image/icons8-caddie-24.png" alt="chariot de vente" class="chariot">
+                <h3 class="login"><a href="#">LOGIN</a></h3>
+            </div>
+        </ul>
+    </nav>
+</header>
+    
+    <div id="search-filter">
+        <img src="https://cdn-icons-png.flaticon.com/512/3031/3031293.png" alt="search icon">
+        <input id="searchBar" placeholder="Search...." type="text">
+        <select name="Selection" id="" onchange="setFilterBy(this)">
+            <option value="1">Best Match</option>
+            <option value="2">Min Price</option>
+            <option value="3">Max Price</option>
+        </select>
+    </div>
+
+
+    
+    <section id="products">
+        <div class="filtres">
+            <span>Fliter By</span>
+                <select name="Collection" id="collection" onchange="setCurrentCollection(this)">
+                    <option value="">Collection</option>
+                </select>
+
+
+    <select name="Color" id="color" onchange="setCurrentColor(this)" >
+        <option value="">Color</option>
+    </select>
+
+            <select name="Category" id="category" onchange="setCurrentCategory(this)">
+                <option value="">Category</option>
+            </select>
+
+            <p>Price Range</p>
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div id="slider-range"></div>
+                  </div>
+                </div>
+                <div class="row slider-labels">
+                  <div class="col-xs-6 caption">
+                    <strong></strong> <span id="slider-range-value1"></span>
+                  </div>
+                  <div class="col-xs-6 text-right caption">
+                    <strong></strong> <span id="slider-range-value2"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <form>
+                      <input type="hidden" name="min-value" value="">
+                      <input type="hidden" name="max-value" value="">
+                    </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pagesSelector">
+        
+    </section>
+    <script src="./utils/constant.js"></script>
+    <script src="slider.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
